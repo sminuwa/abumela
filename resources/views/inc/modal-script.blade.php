@@ -85,15 +85,15 @@
             contentType: false,
             processData: false,
             beforeSend: function () {
-                $("#modal-mail-title").html('');
-                $("#modal-mail-reference").html('');
-                $("#modal-mail-status").html('');
-                $("#modal-mail-date").html('');
-                $("#modal-mail-created_at").html('');
-                $("#modal-mail-sender").html('');
-                $("#modal-mail-department").html('');
+                $("#modal-mail-title").html('<img src="{{asset('images/ajax-loader.gif')}}" width="25" />');
+                $("#modal-mail-reference").html('<img src="{{asset('images/ajax-loader.gif')}}" width="25" />');
+                $("#modal-mail-status").html('<img src="{{asset('images/ajax-loader.gif')}}" width="25" />');
+                $("#modal-mail-date").html('<img src="{{asset('images/ajax-loader.gif')}}" width="25" />');
+                $("#modal-mail-created_at").html('<img src="{{asset('images/ajax-loader.gif')}}" width="25" />');
+                $("#modal-mail-sender").html('<img src="{{asset('images/ajax-loader.gif')}}" width="25" />');
+                $("#modal-mail-department").html('<img src="{{asset('images/ajax-loader.gif')}}" width="25" />');
                 // $("#modal-mail-title-preview").html(obj.title);
-                $("#modal-mail-document-preview").html('');
+                $("#modal-mail-document-preview").html('<img src="{{asset('images/ajax-loader.gif')}}" width="25" />');
             },
             success: function (data) {
                 let obj = JSON.parse(data);
@@ -105,10 +105,10 @@
                 $("#modal-mail-sender").html(obj.sender.name);
                 $("#modal-mail-department").html(obj.sender.department);
                 // $("#modal-mail-title-preview").html(obj.title);
-                $("#modal-mail-document-preview").html("" +
+                /*$("#modal-mail-document-preview").html("" +
                     "<a href='{{asset('mails')}}/" + obj.documents.name + "' target='_blank'>" +
                     "<img src='{{asset('mails')}}/" + obj.documents.name + "' alt='img25'/>" +
-                    "</a>");
+                    "</a>");*/
                 // $("#modal-mail-test-data").html(data)
                 // $("#modal-mail-title").html(data)
 
@@ -185,7 +185,7 @@
                             $("#modal-form-reply-div").slideUp();
                         },
                         success: function (data) {
-                            /!*deleting the fields*!/
+                            /*deleting the fields*/
                             $("#comment").val('');
                             $("#from").val('');
                             $("#to").val('');
@@ -213,6 +213,7 @@
             beforeSend: function () {
                 // alert('Hello')
                 // $("#modal-mail-document-preview").html('');
+                $("#modal-mail-comments-div").html('<img src="{{asset('images/ajax-loader.gif')}}" width="25" />');
             },
             success: function (data) {
                 $("#modal-mail-comments-div").html('');
@@ -227,7 +228,7 @@
                         // alert(obj[i].comment)
                         $("#modal-mail-comments-div").append(
                             '<li class="collection-item avatar">' +
-                            '  <img src="images/avatar/avatar-7.png" alt="" class="circle">' +
+                            '  <img src="{{asset('images/avatar/avatar-7.png')}}" alt="" class="circle">' +
                             '  <p class="font-weight-600"> ' + obj[i].received_from + ' &#8594 ' + obj[i].forwarded_to + '  </p>' +
                             '  <p class="font-weight-100"> ' + obj[i].comment + ' </p>' +
                             '  <p class="medium-small">' + obj[i].created_at + '</p>' +
@@ -251,6 +252,8 @@
             contentType: false,
             processData: false,
             beforeSend: function () {
+                $('#modal-mail-forwarded-to').html('<img src="{{asset('images/ajax-loader.gif')}}" width="25" />');
+                $('#modal-mail-forwarded-at').html('<img src="{{asset('images/ajax-loader.gif')}}" width="25" />')
             },
             success: function (data) {
                 let obj = JSON.parse(data);
@@ -273,6 +276,7 @@
                 // alert('Hello')
                 // $("#modal-mail-title-preview").html(obj.title);
                 // $("#modal-mail-document-preview").html('');
+                $("#modal-mail-document-preview").html('<img src="{{asset('images/ajax-loader.gif')}}" width="25" />');
             },
             success: function (data) {
                 $("#modal-mail-document-preview").html('');
